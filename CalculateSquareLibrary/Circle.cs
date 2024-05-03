@@ -1,20 +1,32 @@
-﻿namespace ConsoleApp8
+﻿namespace CalculateSquareLibrary.Domain;
+public class Circle : GeometricShape
 {
-    public class Circle : GeometricShape
+    private double _radius { get; set; }
+    public override string NameOfShape { get; protected set; }
+
+    public Circle(double radius)
     {
-        public double _radius { get; set; }
-        public Circle(double radius)
+        if (radius <= 0)
         {
-            if (radius <= 0)
-            {
-                throw new ArgumentException("the values cannot be less than or equal to zero");
-            }
-            _radius = radius;
+            throw new ArgumentException("the values cannot be less than or equal to zero");
         }
-        public override double CalculateSquare()
-        {
-            var square = _radius * _radius * Math.PI;
-            return square;
-        }
+        _radius = radius;
+        NameOfShape = nameof(Circle);
+    }
+    public override double CalculateSquare()
+    {
+        Square = _radius * _radius * Math.PI;
+        return Square;
+    }
+
+    public override double CalculatePerimetr()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override bool Equals(object? obj)
+    {
+        return this.Square == (obj as Circle).Square;
     }
 }
+

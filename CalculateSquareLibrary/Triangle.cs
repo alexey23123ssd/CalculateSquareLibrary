@@ -1,7 +1,4 @@
-﻿using System.Diagnostics.Metrics;
-using System.Runtime.CompilerServices;
-
-namespace ConsoleApp8
+﻿namespace CalculateSquareLibrary.Domain
 {
     public class Triangle : GeometricShape
     {
@@ -10,6 +7,8 @@ namespace ConsoleApp8
         private double _firstSide { get; set; }
         private double _secondSide { get; set; }
         private double _thirdSide { get; set; }
+        public bool _isRectangular { get; private set; }
+        public override string NameOfShape { get ; protected set ; }
 
         public Triangle(double firstSide, double secondSide, double thirdSide)
         {
@@ -21,20 +20,29 @@ namespace ConsoleApp8
             {
                 throw new ArgumentException(theLengthsOfTheSidesMessage);
             }
-            if (Math.Pow(firstSide, 2) == Math.Pow(secondSide, 2) + Math.Pow(thirdSide, 2) || Math.Pow(secondSide, 2) == Math.Pow(firstSide, 2) + Math.Pow(thirdSide, 2) || Math.Pow(thirdSide, 2) == Math.Pow(firstSide, 2) + Math.Pow(secondSide, 2))
+            if (Math.Pow(firstSide, 2) == Math.Pow(secondSide, 2) + Math.Pow(thirdSide, 2) 
+                || Math.Pow(secondSide, 2) == Math.Pow(firstSide, 2) + Math.Pow(thirdSide, 2) 
+                || Math.Pow(thirdSide, 2) == Math.Pow(firstSide, 2) + Math.Pow(secondSide, 2))
             {
-                Console.WriteLine("rectangular triangle");
+                _isRectangular = true;
             }
             _firstSide = firstSide;
             _secondSide = secondSide;
             _thirdSide = thirdSide;
+            NameOfShape = nameof(Triangle);
         }
        
         public override double CalculateSquare()
         {
             var halfPerimeter = (_firstSide + _secondSide + _thirdSide) / 2;
-            var square = Math.Sqrt(halfPerimeter * (halfPerimeter - _firstSide) * (halfPerimeter - _secondSide) * (halfPerimeter - _thirdSide));
-            return square;
+            Square = Math.Sqrt(halfPerimeter * (halfPerimeter - _firstSide) * (halfPerimeter - _secondSide) * (halfPerimeter - _thirdSide));
+            return Square;
+        }
+
+        public override double CalculatePerimetr()
+        {
+            Perimetr = _firstSide + _secondSide + _thirdSide;
+            return Perimetr;
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace ConsoleApp8.Services
+﻿namespace CalculateSquareLibrary.Domain.Services
 {
-    public class ShapeBuilderService
+    public class ShapeBuilderService 
     {
         private readonly GeometricShape _geometricShape;
         public ShapeBuilderService(GeometricShape geometricShape)
@@ -11,6 +11,11 @@
         public double CalculateSquare()
         {
             return _geometricShape.CalculateSquare();
+        }
+
+        public string WhatIsIt()
+        {
+            return _geometricShape.NameOfShape;
         }
     }
 }
