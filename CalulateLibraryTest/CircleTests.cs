@@ -21,6 +21,7 @@ namespace CalulateSquareLibraryTest
 
             circle1.CalculateSquare();
             circle2.CalculateSquare();
+
             // Assert
             Assert.AreEqual(circle1, circle2);
         }
@@ -38,6 +39,7 @@ namespace CalulateSquareLibraryTest
 
             circle1.CalculateSquare();
             circle2.CalculateSquare();
+
             // Assert
             Assert.AreNotEqual(circle1, circle2);
         }
@@ -54,6 +56,8 @@ namespace CalulateSquareLibraryTest
 
             // Act 
             Circle circle = new Circle(radius);
+
+            // Assert - throw new ArgumentException
         }
 
     }

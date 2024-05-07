@@ -4,26 +4,27 @@ namespace CalulateSquareLibrary.Tests
     [TestClass]
     public class TriangleTest
     {
-        ///// <summary>
-        ///// Naming Convention - ClassName_MethodName_ExpectedResult
-        ///// </summary>
-        //[TestMethod("CreateTriangle_PositiveScenario")]
-        //public void Triangle_CalculateSquare_EqualitySuccessful()
-        //{
-        //    // Arrange
-        //    var firstSide = 2;
-        //    var secondSide = 1;
-        //    var thirdSide = 5;
+        /// <summary>
+        /// Naming Convention - ClassName_MethodName_ExpectedResult
+        /// </summary>
+        [TestMethod("CreateTriangle_PositiveScenario")]
+        [DataRow(2,1,3)]
+        public void Triangle_CalculateSquare_EqualitySuccessful(double firstSide, double secondSide, double thirdSide)
+        {
+            // Arrange
+            var _firstSide = firstSide;
+            var _secondSide = secondSide;
+            var _thirdSide = thirdSide;
 
-        //    // Act 
-        //    //Circle circle1 = new Circle(radius);
-        //    //Circle circle2 = new Circle(radius);
+            // Act 
+            Triangle triangle1 = new Triangle(_firstSide,_secondSide,_thirdSide);
+            Triangle triangle2 = new Triangle(_firstSide, _secondSide, _thirdSide);
 
-        //    circle1.CalculateSquare();
-        //    circle2.CalculateSquare();
-        //    // Assert
-        //    Assert.AreEqual(circle1, circle2);
-        //}
+            triangle1.CalculateSquare();
+            triangle2.CalculateSquare();
+            // Assert
+            Assert.AreEqual(triangle1, triangle2);
+        }
 
         /// <summary>
         /// Naming Convention - ClassName_MethodName_ExpectedResult
@@ -40,7 +41,7 @@ namespace CalulateSquareLibrary.Tests
             // Act 
             Triangle triangle = new Triangle(firstSide, secondSide, thirdSide);
 
-            // Assert
+            // Assert - throw new ArgumentException
         }
 
         /// <summary>
@@ -58,7 +59,7 @@ namespace CalulateSquareLibrary.Tests
             // Act 
             Triangle triangle = new Triangle(firstSide, secondSide, thirdSide);
 
-            // Assert
+            // Assert - throw new ArgumentException
         }
 
         /// <summary>

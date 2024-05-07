@@ -22,8 +22,8 @@ namespace CalulateSquareLibrary.Tests
             ShapeBuilderService service = new ShapeBuilderService(triangle);
 
             // Assert
-            var tt = service.WhatIsIt();
-            Assert.AreEqual(tt, nameof(Triangle));  
+            var shapeType = service.WhatIsIt();
+            Assert.AreEqual(shapeType, nameof(Triangle));  
         }
     }
 }

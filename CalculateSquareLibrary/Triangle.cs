@@ -16,19 +16,23 @@
             {
                 throw new ArgumentException(lessThanOrEqualToZeroMessage);
             }
+
             if (firstSide > secondSide + thirdSide || secondSide > firstSide + thirdSide || thirdSide > firstSide + secondSide)
             {
                 throw new ArgumentException(theLengthsOfTheSidesMessage);
             }
+
             if (Math.Pow(firstSide, 2) == Math.Pow(secondSide, 2) + Math.Pow(thirdSide, 2) 
                 || Math.Pow(secondSide, 2) == Math.Pow(firstSide, 2) + Math.Pow(thirdSide, 2) 
                 || Math.Pow(thirdSide, 2) == Math.Pow(firstSide, 2) + Math.Pow(secondSide, 2))
             {
                 _isRectangular = true;
             }
+
             _firstSide = firstSide;
             _secondSide = secondSide;
             _thirdSide = thirdSide;
+
             NameOfShape = nameof(Triangle);
         }
        
@@ -43,6 +47,11 @@
         {
             Perimetr = _firstSide + _secondSide + _thirdSide;
             return Perimetr;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return this.Square == ((obj as Triangle).Square);
         }
     }
 }
